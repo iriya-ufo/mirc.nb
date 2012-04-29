@@ -105,7 +105,10 @@ class Mirc < Nadoka::NDK_Bot
       NKF::nkf('-Je', str)
     end
     def e2j(str)
-      NKF::nkf('-Ej', str)
+      NKF::nkf('-Ew', str)
+    end
+    def u2e(str)
+      NKF::nkf('-We', str)
     end
 
     def http_get(url)

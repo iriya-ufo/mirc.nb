@@ -62,7 +62,7 @@ def misakura_table
 end
 
 def misakura(msg)
-  msg = j2e(msg)
+  msg = u2e(msg)
   misakura_table.each do |pat, rep|
     msg.gsub!(pat, rep)
   end
