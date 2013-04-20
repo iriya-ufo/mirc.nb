@@ -1,11 +1,11 @@
 # -*- coding: euc-jp -*-
 
 def log_password_file; "/home/misc/.htpasswd" end
-def log_user; "pon" end
+def log_user; "hoge" end
 def htpasswdcmd; "/usr/local/apache2.2.18/bin/htpasswd" end
 
 def pass_desc
-  "pass>[pass]: ¥í¥°±ÜÍ÷ÍÑ¥Ñ¥¹¥ï¡¼¥É¤ò³ÎÇ§/ÀßÄê¤·¤Þ¤¹¡£"
+  "pass>[pass]: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¥Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ï¿½ï¿½Ç§/ï¿½ï¿½ï¿½ê¤·ï¿½Þ¤ï¿½ï¿½ï¿½"
 end
 
 def target_notice target, msg
@@ -16,14 +16,14 @@ def pass msg
   msg.strip!
   if msg.empty?
     if @pass.nil? || @pass.empty?
-      "¥Ñ¥¹¥ï¡¼¥ÉËº¤ì¤Þ¤·¤¿¡£Å¬Åö¤ËÀßÄê¤·¤Æ¤¯¤À¤µ¤¤¡£"
+      "ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½Ëºï¿½ï¿½Þ¤ï¿½ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
     else
-      ["¸½ºß¤Î¥Ñ¥¹¥ï¡¼¥É¤Ï ¡Ö#{@pass}¡×",
-       "¥æ¡¼¥¶Ì¾¤Ï pon",
+      ["ï¿½ï¿½ï¿½ß¤Î¥Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ï¿½ ï¿½ï¿½#{@pass}ï¿½ï¿½",
+       "ï¿½æ¡¼ï¿½ï¿½Ì¾ï¿½ï¿½ hoge",
        "http://nao.no-ip.info/~misc/irclog/irclog-%23tucc-ob/today.log",
        "http://nao.no-ip.info/~misc/irclog/irclog-%23tucc-ob/yesterday.log",
-       "¥Ñ¥¹¥ï¡¼¥É¤Ï¤½¤ó¤Ê¤ËÊÑ¹¹¤µ¤ì¤Ê¤¤¤Î¤Ç¡¢¥Ö¥é¥¦¥¶¤Î¥Ñ¥¹¥ï¡¼¥ÉÊÝÂ¸µ¡Ç½¤ò»È¤¦¤Î¤¬¤ª¤¹¤¹¤á¤Ç¤¹¡£",
-       #"²áµî¤Î¥í¥°¤Ï¥µ¡¼¥Ð¤Î¥Õ¥¡¥¤¥ë¥·¥¹¥Æ¥à¾å¤Î ~muto/logs/irc.edw-CS-(¥Á¥ã¥Í¥ëÌ¾)/ ¤ËÊÝÂ¸¤µ¤ì¤Æ¤¤¤Þ¤¹¡£",
+       "ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤Ï¤ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½Î¤Ç¡ï¿½ï¿½Ö¥é¥¦ï¿½ï¿½ï¿½Î¥Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Ç½ï¿½ï¿½È¤ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½",
+       #"ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½ï¿½ï¿½Ð¤Î¥Õ¥ï¿½ï¿½ï¿½ï¿½ë¥·ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ ~muto/logs/irc.edw-CS-(ï¿½ï¿½ï¿½ï¿½Í¥ï¿½Ì¾)/ ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½",
       ].each do |msg|
         target_notice(@context.nick, msg)
       end
@@ -33,9 +33,9 @@ def pass msg
     @pass = msg
     #if system("/usr/sbin/htpasswd2", "-b", log_password_file, log_user, msg)
     if system(htpasswdcmd, "-b", log_password_file, log_user, msg)
-      "¥Ñ¥¹¥ï¡¼¥É¤ò¹¹¿·¤·¤Þ¤·¤¿ #{msg}"
+      "ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ò¹¹¿ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½ #{msg}"
     else
-      "¤Ê¤ó¤«¥¨¥é¡¼¤Ç¤¹"
+      "ï¿½Ê¤ó¤«¥ï¿½ï¿½é¡¼ï¿½Ç¤ï¿½"
     end
   end
 end
